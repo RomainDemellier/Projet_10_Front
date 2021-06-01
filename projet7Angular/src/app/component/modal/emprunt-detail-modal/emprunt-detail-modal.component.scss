@@ -1,0 +1,29 @@
+
+$primary-color-dark:   #1976D2;
+$primary-color:        #2196F3;
+$primary-color-light:  #BBDEFB;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #FFEB3B;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #BDBDBD;
+
+.card-title {
+    font-weight: 500 !important;
+    margin-bottom: 15px !important;
+}
+
+p {
+    margin-bottom: 10px !important;
+}
+
+.empruntAction {
+    color: $primary-color;
+    background-color: transparent !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.empruntAction:hover {
+    color: $primary-color-text;
+    background-color: $primary-color !important;
+}

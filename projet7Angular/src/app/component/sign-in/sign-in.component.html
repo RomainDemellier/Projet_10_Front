@@ -1,0 +1,24 @@
+<form [formGroup]="loginForm" class="col s12 white" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">account_circle</i>
+      <input type="text" id="email" formControlName="username" class="inputLogin">
+      <label for="email">Email</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">vpn_key</i>
+      <input type="password" id="password" formControlName="password" class="inputLogin">
+      <label for="password">Password</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <button class="btn-large btn-submit col s12" type="submit" [disabled]="!loginForm.valid">Login
+      </button>
+    </div>
+  </div>
+</form>
+<p-toast></p-toast>
+

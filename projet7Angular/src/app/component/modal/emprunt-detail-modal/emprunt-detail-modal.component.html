@@ -1,0 +1,15 @@
+<div class="card" *ngIf="emprunt" style="margin: 0px; padding: 0px;">
+    <div class="card-content">
+        <span class="card-title center-align title">{{ emprunt.exemplaire.livre.titre }}
+            <a (click)="closeDialog()" class="btn-floating btn-small right action"><i
+                    class="material-icons">close</i></a></span>
+        <p><strong>Auteur: </strong>{{ emprunt.exemplaire.livre.auteur.prenom + ' ' + emprunt.exemplaire.livre.auteur.nom }}</p>
+        <p><strong>Date d'emprunt: </strong>{{ emprunt.dateEmprunt | date : 'dd/MM/yyyy' }}</p>
+        <p><strong>Date de retour: </strong>{{ emprunt.dateRetour | date : 'dd/MM/yyyy' }}</p>
+    </div>
+    <div class="card-action center-align" style="padding: 8px;">
+<!--        <div class="row" style="margin: 0;" *ngIf="!emprunt.prolonge">-->
+            <a class="btn col s4 offset-s4 empruntAction" (click)="prolonger()">Prolonger</a>
+<!--        </div>-->
+    </div>
+</div>
