@@ -1,0 +1,27 @@
+$primary-color-dark:   #1976D2;
+$primary-color:        #2196F3;
+$primary-color-light:  #BBDEFB;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #FFEB3B;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #BDBDBD;
+
+.nav-extended {
+    background-color: $primary-color-dark;
+    
+}
+
+.nav-extended a {
+    color: $primary-color-text;
+}
+
+a:hover, li:hover {
+    background-color: $primary-color;
+    color: $secondary-text-color;
+}
+
+.activeRoute {
+    color: $accent-color !important;
+    background-color: $primary-color !important;
+}

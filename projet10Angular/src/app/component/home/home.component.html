@@ -1,0 +1,32 @@
+<nav class="nav-extended">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo text-color" style="padding-left: 20px; padding-right: 20px;">Logo</a>
+    <ul id="nav-mobile" class="right">
+      <li *ngIf="usagerConnecte"><strong><a style="font-size: 20px;" title="Votre profil"
+            (click)="openDialog()">{{ usagerConnecte.prenom + " " + usagerConnecte.nom }}</a></strong></li>
+      <li *ngIf="!usagerConnecte"><strong><a routerLink='/login' style="font-size: 20px;"
+            title="Se connecter">Connexion</a></strong></li>
+      <li>
+        <a *ngIf="usagerConnecte" title="Déconnexion"><i (click)="logout()"
+            class="material-icons">settings_power</i></a>
+        <strong><a *ngIf="!usagerConnecte" routerLink='/signup' style="font-size: 20px;"
+            title="Se connecter">S'inscrire</a></strong>
+      </li>
+    </ul>
+  </div>
+  <div class="nav-content">
+    <ul class="tabs tabs-transparent">
+      <li class="tab"><a routerLink='/home/livres' routerLinkActive="activeRoute">Les livres</a></li>
+      <li class="tab"><a routerLink='/home/emprunts' routerLinkActive="activeRoute"
+          *ngIf="usagerConnecte && usagerConnecte.role == 'USER'">Vos emprunts</a></li>
+          <li class="tab"><a routerLink='/home/reservations' routerLinkActive="activeRoute"
+            *ngIf="usagerConnecte && usagerConnecte.role == 'USER'">Vos réservations</a></li>
+      <!-- <li class="tab"><a routerLink='/home/allEmprunts' routerLinkActive="activeRoute"
+          *ngIf="usagerConnecte && usagerConnecte.role == 'ADMIN'">Tous les emprunts</a></li>
+      <li class="tab"><a routerLink='/home/usagers' routerLinkActive="activeRoute"
+          *ngIf="usagerConnecte && usagerConnecte.role == 'ADMIN'">Les usagers</a></li> -->
+    </ul>
+  </div>
+</nav>
+<p-toast></p-toast>
+<router-outlet></router-outlet>

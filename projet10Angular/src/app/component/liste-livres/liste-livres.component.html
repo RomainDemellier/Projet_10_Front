@@ -1,0 +1,45 @@
+ <h1 class="title1">Les Livres</h1>
+  <div class="row filter">
+    <mat-form-field class="searchFormField col s12">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="La reine Margot">
+    </mat-form-field>
+  </div>
+  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="titre">
+      <mat-header-cell *matHeaderCellDef>Titre</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.titre}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="fullNameAuteur">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Auteur</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.auteur.prenom + ' ' + element.auteur.nom}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="genre">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Genre</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.genre}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="nbreExemplaires">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre d'exemplaires</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.nbreExemplaires}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dateRetourPlusProche">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Date de retour prévue</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.dateRetourPlusProche ? (element.dateRetourPlusProche | date: "dd/MM/yyyy") : "_" }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="nbreReservations">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre de réservations</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.nbreExemplaires == 0 ? element.nbreReservations : "_" }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button class="btn-floating btn-small action" title="Réserver" (click)="openDialog(element)" *ngIf="element.nbreExemplaires == 0" [disabled]="!element.reservable">
+          <i class="material-icons">book</i>Détails</button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5,10,15,20]" [pageSize]="10" [length]="30"></mat-paginator>
+<p-toast></p-toast>
+

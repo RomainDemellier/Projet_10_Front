@@ -1,0 +1,25 @@
+$primary-color-dark:   #1976D2;
+$primary-color:        #2196F3;
+$primary-color-light:  #BBDEFB;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #FFEB3B;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #BDBDBD;
+
+.input-field .inputLogin:focus {
+    border-bottom: 1px solid $primary-color !important;
+}
+
+
+.input-field .prefix {
+    color: $primary-text-color !important;
+}
+
+.input-field .prefix.active {
+    color: $primary-color !important;
+}
+
+.input-field input[type=text]:focus + label {
+    color: $primary-color;
+  }
